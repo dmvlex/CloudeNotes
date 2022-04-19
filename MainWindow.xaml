@@ -1,0 +1,48 @@
+﻿<Window x:Name="MainWindow1" x:Class="CloudNotes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CloudNotes"
+        mc:Ignorable="d"
+        Title="CloudNotes" 
+        Height="450" Width="300" 
+        FontFamily="Consolas"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.75*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border x:Name="DropBoxBorder" Margin="3" Grid.Row="0"
+                BorderThickness="2" BorderBrush="DarkGray">
+        <TextBlock x:Name="DropBox" Background="#BFFFFFFF"
+                  Grid.Row="0"
+                  TextAlignment="Center" 
+                  Drop="DropBoxDrop"
+                  Padding="0 80 0 0" AllowDrop="True" 
+                  DragEnter="DropBoxDragEnter" DragLeave="DropBoxDragLeave" />
+        </Border>
+
+        <Button x:Name="SettingsWindowButton"
+                Height="40" Width="40"
+                Grid.Row="1" Margin="3" Padding="2"
+                HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image Source="Images\settings_button_icon.png"/>
+        </Button>
+
+        <Button x:Name="SynchronizationButton" Content="Синхронизировать файлы"
+                Height="30" Width="150"
+                FontSize="10"
+                Grid.Row="1" Margin="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom">
+            
+        </Button>
+        
+
+
+
+    </Grid>
+</Window>
