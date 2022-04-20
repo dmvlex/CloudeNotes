@@ -28,7 +28,7 @@
         <Button x:Name="SettingsWindowButton"
                 Height="40" Width="40"
                 Grid.Row="1" Margin="3" Padding="2"
-                HorizontalAlignment="Left" VerticalAlignment="Top">
+                HorizontalAlignment="Left" VerticalAlignment="Top" Click="SettingsButtonClick">
             <Image Source="Images\settings_button_icon.png"/>
         </Button>
 

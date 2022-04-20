@@ -27,13 +27,14 @@ namespace CloudNotes
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static string[] droppedFilesPaths; //массив всех дропнутых путей файлов
         private string droppedFilesPathsString; //строка со всеми путями дропнутых файлов
 
         public MainWindow()
         {
             InitializeComponent();
             InstallDropBoxStyle(DropBoxStyle.Default);
-            
+            CloudFiles.MakeLocalDirectory();
         }
 
         private void InstallDropBoxStyle(DropBoxStyle dropBoxStyle)
@@ -58,14 +59,11 @@ namespace CloudNotes
 
 
 
-
-
         //Эвенты дроп бокса
         private void DropBoxDrop(object sender, DragEventArgs e)
         {
             AllowDrop = false;
-
-            string[] droppedFilesPaths;
+            
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 droppedFilesPaths = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -75,9 +73,10 @@ namespace CloudNotes
                 {
                     pathsStringBuilder.Append($"{path}\n");
                 }
+                droppedFilesPathsString = pathsStringBuilder.ToString();
             }
-            
-            
+
+            CloudFiles.MoveToLocalDirectory(droppedFilesPaths);
             InstallDropBoxStyle(DropBoxStyle.Default);
         }
 
@@ -89,6 +88,14 @@ namespace CloudNotes
         private void DropBoxDragLeave(object sender, DragEventArgs e)
         {
             InstallDropBoxStyle(DropBoxStyle.Default);
+        }
+
+        //вкладка настроек
+        private void SettingsButtonClick(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.Owner = this;
+            settingsWindow.Show();
         }
     }
 }

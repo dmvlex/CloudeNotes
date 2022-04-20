@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudNotes.csproj",
+      "projectUniqueName": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\CloudNotes.csproj",
       "projectName": "CloudNotes",
-      "projectPath": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudNotes.csproj",
+      "projectPath": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\CloudNotes.csproj",
       "packagesPath": "C:\\Users\\betme\\.nuget\\packages\\",
-      "outputPath": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\obj\\",
+      "outputPath": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Alex Stuff\\Programming\\Prog Soft\\VISUAL STUDIO SDK'S\\NuGetPackages"

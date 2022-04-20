@@ -6,9 +6,31 @@
         xmlns:local="clr-namespace:CloudNotes"
         mc:Ignorable="d"
         Title="SettingsWindow" 
-        Height="250" Width="350">
+        FontFamily="Consolas"
+        Height="250" Width="450" ResizeMode="CanMinimize">
     <Grid x:Name="SettingsGrid" 
           Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.45*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="LocalSaveFolderPathButton"
+                Margin="3" Content="Изменить путь"
+                Height="35" Width="100"
+                FontSize="10"
+                HorizontalAlignment="Right" VerticalAlignment="Center" Click="ChangeLocalFolderButtonClick"/>
+
+        <TextBlock x:Name="PathLabel"
+                   Text="Путь к локальной папке сохранения:"
+                   Grid.Row="0" Margin="3"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="LocalPathOutput"
+                   Grid.Row="1" Margin="3" FontSize="10"
+                   VerticalAlignment="Center"/>
+        
+        
         
     </Grid>
 </Window>

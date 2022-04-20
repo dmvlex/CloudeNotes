@@ -22,6 +22,13 @@ namespace CloudNotes
         public SettingsWindow()
         {
             InitializeComponent();
+
+            LocalPathOutput.Text = CloudFiles.LocalFilesFullPath;
+        }
+
+        private void ChangeLocalFolderButtonClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
