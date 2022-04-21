@@ -48,3 +48,8 @@ D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.pdb
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.genruntimeconfig.cache
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\ref\CloudNotes.dll
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\System.Net.Http.Formatting.dll
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Json.Bson.dll
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\YandexDisk.Client.dll
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.CopyComplete

@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.IO;
 
 namespace CloudNotes
 {
@@ -35,6 +26,7 @@ namespace CloudNotes
             InitializeComponent();
             InstallDropBoxStyle(DropBoxStyle.Default);
             CloudFiles.MakeLocalDirectory();
+            YaDisk.CreateCloudFolder();
         }
 
         private void InstallDropBoxStyle(DropBoxStyle dropBoxStyle)
@@ -56,7 +48,7 @@ namespace CloudNotes
             
         }
 
-
+        
 
 
         //Эвенты дроп бокса
@@ -96,6 +88,20 @@ namespace CloudNotes
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.Owner = this;
             settingsWindow.Show();
+        }
+
+        private void SynchronizationButtonClick(object sender, RoutedEventArgs e)
+        {
+            var filesPath = CloudFiles.GetFilesFromLocalDirectory();
+
+            try
+            {
+                YaDisk.UploadFiles(filesPath);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

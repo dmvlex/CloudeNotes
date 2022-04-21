@@ -26,17 +26,21 @@ namespace CloudNotes
 
             foreach (var path in pathsToMove)
             {
-                var movedFileInfo = new FileInfo(path);
-
                 try
                 {
-                    File.Move(path, LocalFilesFullPath + movedFileInfo.Name);
+                    File.Move(path, LocalFilesFullPath + Path.GetFileName(path));
                 }catch(Exception e)
                 {
                     MessageBox.Show(e.Message);
                 }
 
             }
+        }
+
+        public static string[] GetFilesFromLocalDirectory()
+        {
+
+            return Directory.GetFiles(LocalFilesFullPath);
         }
     }
 }
