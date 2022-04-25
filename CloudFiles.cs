@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CloudNotes.Properties;
 using System.IO;
 using System.Windows;
 
@@ -10,7 +11,7 @@ namespace CloudNotes
 {
     internal static class CloudFiles
     {
-        public static string LocalFilesPath { get; set; } = @"Saved Files\";
+        public static string LocalFilesPath { get; set; } = Settings.Default["LocalPath"].ToString();
         public static string LocalFilesFullPath { get; set; } = Path.GetFullPath(LocalFilesPath);
 
         public static void MakeLocalDirectory()
@@ -28,7 +29,7 @@ namespace CloudNotes
             {
                 try
                 {
-                    File.Move(path, LocalFilesFullPath + Path.GetFileName(path));
+                    File.Move(path, Path.Combine(LocalFilesFullPath, Path.GetFileName(path)));
                 }catch(Exception e)
                 {
                     MessageBox.Show(e.Message);

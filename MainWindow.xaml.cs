@@ -92,13 +92,25 @@ namespace CloudNotes
 
         private void SynchronizationButtonClick(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                YaDisk.DownloadFilesFromCloud();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void UploadToCloudClick(object sender, RoutedEventArgs e)
+        {
             var filesPath = CloudFiles.GetFilesFromLocalDirectory();
 
             try
             {
-                YaDisk.UploadFiles(filesPath);
+               YaDisk.UploadFilesOnCloud(filesPath);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

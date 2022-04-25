@@ -7,27 +7,55 @@
         mc:Ignorable="d"
         Title="SettingsWindow" 
         FontFamily="Consolas"
-        Height="250" Width="450" ResizeMode="CanMinimize">
+        Height="250" Width="250" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
     <Grid x:Name="SettingsGrid" 
           Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.35*"/>
-            <RowDefinition Height="0.45*"/>
+            <RowDefinition Height="0.47*"/>
+            <RowDefinition Height="0.50*"/>
+            <RowDefinition Height="0.55*"/>
             <RowDefinition/>
+            <RowDefinition Height="0.47*"/>
+            <RowDefinition Height="0.50*"/>
+            <RowDefinition Height="0.55*"/>
         </Grid.RowDefinitions>
+        
 
-        <Button x:Name="LocalSaveFolderPathButton"
-                Margin="3" Content="Изменить путь"
-                Height="35" Width="100"
-                FontSize="10"
-                HorizontalAlignment="Right" VerticalAlignment="Center" Click="ChangeLocalFolderButtonClick"/>
+        
 
         <TextBlock x:Name="PathLabel"
                    Text="Путь к локальной папке сохранения:"
                    Grid.Row="0" Margin="3"
-                   HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                   HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="PathInput"
+                   IsReadOnly="True"
+                   Grid.Row="1"
+                   FontSize="15"
+                   Margin="3"/>
+        <Button x:Name="LocalSaveFolderPathButton"
+                Margin="3" Content="Изменить путь"
+                Height="27" Width="95" Padding="0"
+                Grid.Row="2"
+                FontSize="10"
+                HorizontalAlignment="Right" VerticalAlignment="Center" Click="ChangeLocalFolderButtonClick"/>
+
+        <TextBlock x:Name="CloudPathLabel"
+                   Text="Название папки на облаке:"
+                   Margin="3"
+                   Grid.Row="4"/>
+        <TextBox x:Name="CloudPathInput"
+                 FontSize="15"
+                 Grid.Row="5"
+                 Margin="3"/>
+        <Button x:Name="CloudFolderNameButton"
+                Margin="3" Content="Изменить имя"
+                Height="27" Width="95" Padding="0"
+                Grid.Row="6"
+                FontSize="10"
+                HorizontalAlignment="Right" VerticalAlignment="Center" Click="ChangeCloudFolderNameClick"/>
+
         <TextBlock x:Name="LocalPathOutput"
-                   Grid.Row="1" Margin="3" FontSize="10"
+                   Grid.Row="3" Margin="3" FontSize="10"
                    VerticalAlignment="Center"/>
         
         

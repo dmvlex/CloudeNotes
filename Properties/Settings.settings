@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CloudNotes.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LocalPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Saved Files\</Value>
+    </Setting>
+    <Setting Name="CloudFolderName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SavedFromPC</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using CloudNotes.Properties;
+using WinForms = System.Windows.Forms;
+using System.IO;
 
 namespace CloudNotes
 {
@@ -23,12 +14,55 @@ namespace CloudNotes
         {
             InitializeComponent();
 
-            LocalPathOutput.Text = CloudFiles.LocalFilesFullPath;
+            PathInput.Text = CloudFiles.LocalFilesFullPath;
+            CloudPathInput.Text = YaDisk.CloudFolderName;
+        }
+
+        //костыль.ОЧЕНЬ,ОЧЕНЬ,ОЧЕНЬ КОСТЫЛЬНЫЙ КОСТЫЛЬ
+        private void CloudSettingsUpdate()
+        {
+            YaDisk.CloudFolderName = Settings.Default["CloudFolderName"].ToString();
+            YaDisk.CreateCloudFolder();
+        }
+
+        private void LocalFolderSettingsUpdate()
+        {
+            CloudFiles.LocalFilesPath = Settings.Default["LocalPath"].ToString();
+            CloudFiles.LocalFilesFullPath = Path.GetFullPath(CloudFiles.LocalFilesPath);
+            CloudFiles.MakeLocalDirectory();
         }
 
         private void ChangeLocalFolderButtonClick(object sender, RoutedEventArgs e)
         {
+            var dialogFileChoise = new WinForms.FolderBrowserDialog();
+            var dialogResult = dialogFileChoise.ShowDialog();
 
+            if (dialogResult == WinForms.DialogResult.OK)
+            {
+                Settings.Default.LocalPath = dialogFileChoise.SelectedPath;
+                Settings.Default.Save();
+                LocalFolderSettingsUpdate();
+                PathInput.Text = CloudFiles.LocalFilesFullPath;
+            }
+ 
+        }
+
+        private void ChangeCloudFolderNameClick(object sender, RoutedEventArgs e)
+        {
+            if (CloudPathInput.Text != "")
+            {
+                Settings.Default.CloudFolderName = CloudPathInput.Text;
+                Settings.Default.Save();
+                CloudSettingsUpdate();
+
+
+                MessageBox.Show("Имя папки на облаке успешно изменено", "Успех");
+            }
+            else
+            {
+                MessageBox.Show("Имя папки не может быть пустым", "Ошибка!");
+            }
+            
         }
     }
 }

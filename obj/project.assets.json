@@ -4607,7 +4607,7 @@
     "D:\\Alex Stuff\\Programming\\Prog Soft\\VISUAL STUDIO SDK'S\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.0.1",
     "restore": {
       "projectUniqueName": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\CloudNotes.csproj",
       "projectName": "CloudNotes",
@@ -4665,7 +4665,7 @@
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
-          "Microsoft.WindowsDesktop.App.WPF": {
+          "Microsoft.WindowsDesktop.App": {
             "privateAssets": "none"
           }
         },

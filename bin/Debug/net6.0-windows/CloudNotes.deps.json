@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "CloudNotes/1.0.0": {
+      "CloudNotes/0.0.1": {
         "dependencies": {
           "YandexDisk.Client": "1.3.22"
         },
@@ -727,7 +727,7 @@
     }
   },
   "libraries": {
-    "CloudNotes/1.0.0": {
+    "CloudNotes/0.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

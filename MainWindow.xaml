@@ -6,40 +6,46 @@
         xmlns:local="clr-namespace:CloudNotes"
         mc:Ignorable="d"
         Title="CloudNotes" 
-        Height="300" Width="300" 
+        Height="400" Width="300" 
         FontFamily="Consolas"
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.75*"/>
-            <RowDefinition Height="0.30*"/>
+            <RowDefinition Height="0.25*"/>
         </Grid.RowDefinitions>
 
         <Border x:Name="DropBoxBorder" Margin="3" Grid.Row="0"
                 BorderThickness="2" BorderBrush="DarkGray">
         <TextBlock x:Name="DropBox" Background="#BFFFFFFF"
                   Grid.Row="0"
-                  TextAlignment="Center" 
-                  Drop="DropBoxDrop"
-                  Padding="0 80 0 0" AllowDrop="True" 
+                  TextAlignment="Center" Padding="0 120 0 0"
+                  Drop="DropBoxDrop" AllowDrop="True" 
                   DragEnter="DropBoxDragEnter" DragLeave="DropBoxDragLeave" />
         </Border>
 
         <Button x:Name="SettingsWindowButton"
-                Height="40" Width="40"
-                Grid.Row="1" Margin="3" Padding="2"
+                Height="45" Width="45"
+                Grid.Row="1" Margin="3 3 10 10" Padding="2"
                 HorizontalAlignment="Left" VerticalAlignment="Top" Click="SettingsButtonClick">
             <Image Source="Images\settings_button_icon.png"/>
         </Button>
 
-        <Button x:Name="SynchronizationButton" Content="Синхронизировать файлы"
-                Height="40" Width="150"
-                FontSize="10"
-                Grid.Row="1" Margin="3"
+        <Button x:Name="SynchronizationButton" Content="Загрузить файлы из облака"
+                Height="45" Width="160"
+                FontSize="10" Padding="0"
+                Grid.Row="1" Margin="3 3 3 10"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Top" Click="SynchronizationButtonClick">
-
-        </Button>
+                VerticalAlignment="Top" Click="SynchronizationButtonClick"/>
         
+        <Button x:Name="UploadToButtonCloud" Content="Загрузить файлы в облако"
+                Height="45" Width="160"
+                FontSize="10" Padding="0"
+                Grid.Row="1" Margin="3 10 3 3"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" Click="UploadToCloudClick"/>
+
+
+
     </Grid>
 </Window>
