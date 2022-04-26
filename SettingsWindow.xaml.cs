@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using CloudNotes.Properties;
+using System.Diagnostics;
 using WinForms = System.Windows.Forms;
 using System.IO;
 using System.Windows.Media;
@@ -92,5 +93,7 @@ namespace CloudNotes
         {
             CloudToken.ClearIECookie();
         }
+
+       
     }
 }

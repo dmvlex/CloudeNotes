@@ -62,7 +62,7 @@ namespace CloudNotes {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CloudNotes;V1.0.0.0;component/webbrowserwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CloudNotes;component/webbrowserwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WebBrowserWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

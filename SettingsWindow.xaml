@@ -81,11 +81,7 @@
                 Height="30" Width="180" Padding="0"
                 Grid.Row="5" Grid.Column="5"
                 HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangeLocalFolderButtonClick"/>
-        <Button x:Name="GoToLocalPath"
-                Margin="3" Content="Открыть локальную папку"
-                Height="30" Width="180" Padding="0"
-                Grid.Row="5" Grid.Column="0"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Click="ChangeLocalFolderButtonClick"/>
+        
 
         <!--Имя папки на облаке-->
         <Label Content="Имя папки на облаке: "

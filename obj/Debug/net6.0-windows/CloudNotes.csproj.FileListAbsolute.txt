@@ -55,3 +55,4 @@ D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.CopyComplete
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\WebBrowserWindow.g.cs
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\WebBrowserWindow.baml
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_Content.g.cs
