@@ -16,8 +16,8 @@ namespace CloudNotes
         //https://disk.yandex.ru/client/disk/#access_token=AQAAAABeHUu8AAfYYO68oVeDn02BoRK3rVk-Pjc&token_type=bearer&expires_in=31536000
 
         public static string CloudFolderName = Settings.Default["CloudFolderName"].ToString(); // Позже стоит сделать выбор имени папки через настройки!!!
-        private static string yaToken = "AQAAAABeHUu8AAfYYO68oVeDn02BoRK3rVk-Pjc";
-        private static DiskHttpApi yaApi = new DiskHttpApi(yaToken);//подключение к api яндекса через токен
+        public static string YaToken { get; set; } = CloudToken.AppToken;
+        private static DiskHttpApi yaApi = new DiskHttpApi(YaToken);//подключение к api яндекса через токен
 
         public static async void UploadFilesOnCloud(string[] filesPaths)
         {

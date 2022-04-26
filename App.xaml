@@ -5,25 +5,20 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="Grid">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF54C5E2" Offset="0.435"/>
-                        <GradientStop Color="#92D7F2F9" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
+            <Setter Property="Background" Value="#FF3D3D3D">
+                
             </Setter>
         </Style>
         
         <!-- Переопределяем стиль кнопки, потому что синяя подсветка меня достала!-->
         <Style TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="Background" Value="#FF1F1F1F"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="8,4,8,4"/>
-            <Setter Property="Padding" Value="6"/>
+            <Setter Property="Padding" Value="0"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderBrush" Value="#FF116ED6"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -39,16 +34,21 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Foreground" Value="#FF68A6EC"/>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="#FF68A6EC"/>
                     <Setter Property="Cursor" Value="Hand"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
 
-        
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#C11F1F1F"/>
+            <Setter Property="BorderBrush" Value="#FF68A6EC"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style> 
+
 
     </Application.Resources>
 </Application>

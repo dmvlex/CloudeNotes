@@ -8,5 +8,8 @@
     <Setting Name="CloudFolderName" Type="System.String" Scope="User">
       <Value Profile="(Default)">SavedFromPC</Value>
     </Setting>
+    <Setting Name="Token" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

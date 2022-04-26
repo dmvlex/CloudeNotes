@@ -2,6 +2,7 @@
 using CloudNotes.Properties;
 using WinForms = System.Windows.Forms;
 using System.IO;
+using System.Windows.Media;
 
 namespace CloudNotes
 {
@@ -16,6 +17,8 @@ namespace CloudNotes
 
             PathInput.Text = CloudFiles.LocalFilesFullPath;
             CloudPathInput.Text = YaDisk.CloudFolderName;
+            CheckTokenStatus();
+            
         }
 
         //костыль.ОЧЕНЬ,ОЧЕНЬ,ОЧЕНЬ КОСТЫЛЬНЫЙ КОСТЫЛЬ
@@ -23,6 +26,20 @@ namespace CloudNotes
         {
             YaDisk.CloudFolderName = Settings.Default["CloudFolderName"].ToString();
             YaDisk.CreateCloudFolder();
+        }
+
+        private void CheckTokenStatus()
+        {
+            if (CloudToken.Exist())
+            {
+                TokenStatus.Content = "токен получен";
+                TokenStatus.Foreground = new SolidColorBrush(Color.FromArgb(255, 146, 214, 69));
+            }
+            else
+            {
+                TokenStatus.Content = "токен не получен";
+                TokenStatus.Foreground = new SolidColorBrush(Color.FromArgb(255, 214, 69, 69));
+            }
         }
 
         private void LocalFolderSettingsUpdate()
@@ -63,6 +80,17 @@ namespace CloudNotes
                 MessageBox.Show("Имя папки не может быть пустым", "Ошибка!");
             }
             
+        }
+
+        private void WebButtonClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow.OpenWebWindow();
+        }
+
+
+        private void CookieCLeanClick(object sender, RoutedEventArgs e)
+        {
+            CloudToken.ClearIECookie();
         }
     }
 }

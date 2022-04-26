@@ -6,14 +6,19 @@
 	<UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <Version>0.0.1</Version>
+    <Version>1.0.0</Version>
     <Authors>Alex Kharitonov</Authors>
     <Company>DMVProgram.inc</Company>
     <Description>Приложение, для упрощенного взаимодействия с Я.Диском</Description>
+    <ApplicationIcon>Images\CloudICO.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\settings_button_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\CloudICO.ico" />
   </ItemGroup>
 
   <ItemGroup>

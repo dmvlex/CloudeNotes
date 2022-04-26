@@ -3,6 +3,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using System.IO;
+using System.Linq;
 
 namespace CloudNotes
 {
@@ -10,6 +11,12 @@ namespace CloudNotes
     {
         Default,
         Enter
+    }
+
+    public enum ButtonStatus
+    {
+        Enabled,
+        Disabled
     }
 
 
@@ -25,8 +32,20 @@ namespace CloudNotes
         {
             InitializeComponent();
             InstallDropBoxStyle(DropBoxStyle.Default);
+        }
+
+        private void MainWindowRendered(object sender, EventArgs e)
+        {
+
             CloudFiles.MakeLocalDirectory();
-            YaDisk.CreateCloudFolder();
+            if (CloudToken.Exist())
+            {
+                YaDisk.CreateCloudFolder();
+            }
+            else
+            {
+                OpenWebWindow();
+            }
         }
 
         private void InstallDropBoxStyle(DropBoxStyle dropBoxStyle)
@@ -34,12 +53,12 @@ namespace CloudNotes
             switch (dropBoxStyle)
             {
                 case DropBoxStyle.Default:
-                    DropBoxBorder.BorderBrush = new SolidColorBrush(Color.FromArgb(100, 169, 169, 169));
+                    DropBoxBorder.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 17, 110, 214));
                     DropBox.Text = "Файл(-ы) бросать сюда";
                     AllowDrop = true;
                     break;
                 case DropBoxStyle.Enter:
-                    DropBoxBorder.BorderBrush = new SolidColorBrush(Color.FromArgb(100, 0, 0, 0));
+                    DropBoxBorder.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 104, 166, 236));
                     DropBox.Text = "Отпускай";
                     break;
                 default:
@@ -47,9 +66,16 @@ namespace CloudNotes
             }
             
         }
-
         
+        private void DoYouWannaRegistrate()
+        {
+            var result = MessageBox.Show("Нет доступа к Я.Диску.\nХотите зарегистрироваться?","Регистрация",MessageBoxButton.OKCancel);
 
+            if (result == MessageBoxResult.OK)
+            {
+                OpenWebWindow();
+            }
+        }
 
         //Эвенты дроп бокса
         private void DropBoxDrop(object sender, DragEventArgs e)
@@ -92,28 +118,69 @@ namespace CloudNotes
 
         private void SynchronizationButtonClick(object sender, RoutedEventArgs e)
         {
-            try
+            if (!CloudToken.Exist())
             {
-                YaDisk.DownloadFilesFromCloud();
+                DoYouWannaRegistrate();
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    YaDisk.DownloadFilesFromCloud();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
         private void UploadToCloudClick(object sender, RoutedEventArgs e)
         {
-            var filesPath = CloudFiles.GetFilesFromLocalDirectory();
-
-            try
+            if (!CloudToken.Exist())
             {
-               YaDisk.UploadFilesOnCloud(filesPath);
+                DoYouWannaRegistrate();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                var filesPath = CloudFiles.GetFilesFromLocalDirectory();
+
+                try
+                {
+                    YaDisk.UploadFilesOnCloud(filesPath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
+
+        //веб браузер
+        public static void OpenWebWindow()
+        {
+            if (!CloudToken.Exist())
+            {
+                CloudToken.ClearIECookie();
+                WebBrowserWindow webBrowserWindow = new WebBrowserWindow();
+                webBrowserWindow.Owner = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+                webBrowserWindow.Show();
+            }
+            else
+            {
+                var messageBoxResult = MessageBox.Show("Вы уже зарегистрировались.\nВы уверены, что хотите сменить аккаунт?", "Управление аккаунтом", MessageBoxButton.OKCancel);
+
+                if (MessageBoxResult.OK == messageBoxResult)
+                {
+                    CloudToken.ClearIECookie();
+                    WebBrowserWindow webBrowserWindow = new WebBrowserWindow();
+                    webBrowserWindow.Owner = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+                    webBrowserWindow.Show();
+                }
+
+            }
+        }
+
+       
     }
 }

@@ -6,46 +6,55 @@
         xmlns:local="clr-namespace:CloudNotes"
         mc:Ignorable="d"
         Title="CloudNotes" 
-        Height="400" Width="300" 
+        Height="300" Width="450" 
         FontFamily="Consolas"
-        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" ContentRendered="MainWindowRendered">
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.75*"/>
-            <RowDefinition Height="0.25*"/>
-        </Grid.RowDefinitions>
+            <RowDefinition Height="0.65*"/>
+            <RowDefinition Height="0.20*"/>
 
-        <Border x:Name="DropBoxBorder" Margin="3" Grid.Row="0"
-                BorderThickness="2" BorderBrush="DarkGray">
-        <TextBlock x:Name="DropBox" Background="#BFFFFFFF"
-                  Grid.Row="0"
-                  TextAlignment="Center" Padding="0 120 0 0"
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="DropBoxBorder" Margin="3" Grid.ColumnSpan="3"
+                BorderThickness="2" BorderBrush="#FF116ED6">
+        <TextBlock x:Name="DropBox" Background="#C11F1F1F"
+                  Grid.Row="0" 
+                  FontSize="12" FontWeight="Bold" 
+                  TextAlignment="Center" Padding="0 80 0 0"
                   Drop="DropBoxDrop" AllowDrop="True" 
-                  DragEnter="DropBoxDragEnter" DragLeave="DropBoxDragLeave" />
+                  DragEnter="DropBoxDragEnter" DragLeave="DropBoxDragLeave" Foreground="#FF68A6EC" />
         </Border>
 
+        <!--Панель управления-->
         <Button x:Name="SettingsWindowButton"
                 Height="45" Width="45"
-                Grid.Row="1" Margin="3 3 10 10" Padding="2"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Click="SettingsButtonClick">
+                Grid.Row="1" Grid.Column="2"
+                Margin="3" Padding="2"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Click="SettingsButtonClick">
             <Image Source="Images\settings_button_icon.png"/>
         </Button>
 
         <Button x:Name="SynchronizationButton" Content="Загрузить файлы из облака"
-                Height="45" Width="160"
-                FontSize="10" Padding="0"
-                Grid.Row="1" Margin="3 3 3 10"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top" Click="SynchronizationButtonClick"/>
-        
+                Height="45" Width="190"
+                FontSize="12" Padding="0"
+                Grid.Row="1" Grid.Column="1" 
+                Margin="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" Click="SynchronizationButtonClick"/>
+
         <Button x:Name="UploadToButtonCloud" Content="Загрузить файлы в облако"
-                Height="45" Width="160"
-                FontSize="10" Padding="0"
-                Grid.Row="1" Margin="3 10 3 3"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom" Click="UploadToCloudClick"/>
-
-
+                Height="45" Width="190"
+                FontSize="12" Padding="0"
+                Grid.Row="1" Margin="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" Click="UploadToCloudClick"/>
 
     </Grid>
 </Window>
