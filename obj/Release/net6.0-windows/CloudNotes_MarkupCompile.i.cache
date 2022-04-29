@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\App.xaml
-3534787276
-1-1819472110
-12-127594970
+31242007969
+1309749173
+13-1708332373
 207549497018
-MainWindow.xaml;SettingsWindow.xaml;WebBrowserWindow.xaml;
+MainWindow.xaml;RegistrationWindow.xaml;SettingsWindow.xaml;
 
 True
 

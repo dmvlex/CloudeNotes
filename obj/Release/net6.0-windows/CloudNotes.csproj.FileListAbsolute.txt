@@ -10,14 +10,12 @@ D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Release\net
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes.csproj.AssemblyReference.cache
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\MainWindow.g.cs
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\SettingsWindow.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\WebBrowserWindow.g.cs
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\App.g.cs
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes_MarkupCompile.cache
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes_MarkupCompile.lref
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\App.baml
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\MainWindow.baml
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\SettingsWindow.baml
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\WebBrowserWindow.baml
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes.g.resources
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes.Properties.Resources.resources
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes.csproj.GenerateResource.cache
@@ -32,3 +30,5 @@ D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes.genruntimeconfig.cache
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\ref\CloudNotes.dll
 D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\CloudNotes_Content.g.cs
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\RegistrationWindow.g.cs
+D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Release\net6.0-windows\RegistrationWindow.baml

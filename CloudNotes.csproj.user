@@ -10,7 +10,7 @@
     <Compile Update="SettingsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="WebBrowserWindow.xaml.cs">
+    <Compile Update="RegistrationWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,7 +21,7 @@
     <Page Update="SettingsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WebBrowserWindow.xaml">
+    <Page Update="RegistrationWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

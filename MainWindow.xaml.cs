@@ -13,41 +13,192 @@ namespace CloudNotes
         Enter
     }
 
-    public enum ButtonStatus
-    {
-        Enabled,
-        Disabled
-    }
-
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Открыто ли в данный момент окно настроек?
+        /// </summary>
+        public static bool IsSettingsWindowOpen
+        {
+            get
+            {
+                return isSettingsWindowOpen;
+            }
+            set
+            {
+                isSettingsWindowOpen = value;
+            }
+        }
+
+        /// <summary>
+        /// Открыто ли в данный момент окно регистрации?
+        /// </summary>
+        public static bool IsRegistrationWindowOpen
+        {
+            get
+            {
+                return isRegistrationWindowOpen;
+            }
+            set
+            {
+                isRegistrationWindowOpen = value;
+            }
+        }
+
         private static string[] droppedFilesPaths; //массив всех дропнутых путей файлов
         private string droppedFilesPathsString; //строка со всеми путями дропнутых файлов
+        private static bool isSettingsWindowOpen = false;
+        private static bool isRegistrationWindowOpen = false;
+
 
         public MainWindow()
         {
             InitializeComponent();
-            InstallDropBoxStyle(DropBoxStyle.Default);
+            InstallDropBoxStyle(DropBoxStyle.Default); 
         }
 
-        private void MainWindowRendered(object sender, EventArgs e)
+        /// <summary>
+        /// Открывает окно регистрации в Я.Диске
+        /// </summary>
+        public static void OpenRegistrationWindow()
         {
-
-            CloudFiles.MakeLocalDirectory();
-            if (CloudToken.Exist())
+            if (CloudToken.IsTokenEmpty)
             {
-                YaDisk.CreateCloudFolder();
+                openRegWindow();
             }
             else
             {
-                OpenWebWindow();
+                var messageBoxResult = MessageBox.Show("Вы уже зарегистрировались.\nВы уверены, что хотите сменить аккаунт?", "Управление аккаунтом", MessageBoxButton.OKCancel);
+                if (MessageBoxResult.OK == messageBoxResult)
+                {
+                    openRegWindow();
+                }
+
             }
         }
 
+        /// <summary>
+        /// Метод запрашивает у пользователя разрешение на открытие окна регистрации.
+        /// </summary>
+        public static void RegistrationRequest()
+        {
+            var result = MessageBox.Show("Похоже, вы еще не дали приложению доступа к Я.Диску.\nХотите провести регистрацию прямо сейчас?", "Регистрация", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                OpenRegistrationWindow();
+            }
+        }
+        private void MainWindowRendered(object sender, EventArgs e)
+        {
+            LocalFiles.MakeLocalDirectory();
+
+            if (CloudToken.IsTokenEmpty)
+            {
+                RegistrationRequest();
+            }
+            else
+            {
+               YaDisk.CreateCloudFolder();
+            }
+        } 
+
+        private void DropBoxDrop(object sender, DragEventArgs e)
+        {
+            AllowDrop = false;
+            
+            //Логика получения файлов через Drag'n'Drop
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                droppedFilesPaths = (string[])e.Data.GetData(DataFormats.FileDrop);
+                StringBuilder pathsStringBuilder = new StringBuilder();
+
+                foreach (var path in droppedFilesPaths)
+                {
+                    pathsStringBuilder.Append($"{path}\n");
+                }
+                droppedFilesPathsString = pathsStringBuilder.ToString();
+            }
+            
+            LocalFiles.MoveToLocalPath(droppedFilesPaths); //Сразу перемещаем файлы в локальную папку
+            InstallDropBoxStyle(DropBoxStyle.Default);
+        } 
+        
+        private void OpenSettingsWindow(object sender, RoutedEventArgs e)
+        {
+            if (!isSettingsWindowOpen)
+            {
+                SettingsWindow settingsWindow = new SettingsWindow();
+                settingsWindow.Owner = this;
+                settingsWindow.Show();
+                IsSettingsWindowOpen = true;
+            }
+
+        } 
+
+        private void DownloadFiles(object sender, RoutedEventArgs e) 
+        {
+            if (CloudToken.IsTokenEmpty)
+            {
+                RegistrationRequest();
+            }
+            else
+            {
+                try
+                {
+                    YaDisk.DownloadFilesFromCloud();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Во время скачивания файлов из облака произошла ошибка:\n{ex.Message}","Ошибка");
+                }
+            }
+        } //Нажатие кнопки загрузки из облака в локальную папку
+
+        private void UploadToCloud(object sender, RoutedEventArgs e)
+        {
+            if (CloudToken.IsTokenEmpty)
+            {
+                RegistrationRequest();
+            }
+            else
+            {
+                try
+                {
+                    YaDisk.UploadFilesOnCloud(LocalFiles.FilesFromLocalFolder);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Во время загрузки файлов в облако произошла ошибка:\n{ex.Message}", "Ошибка");
+                }
+            }
+        } //Нажатие кнопки загрузки в облако из локальной папки
+
+        private static void openRegWindow()
+        {
+            if (!isRegistrationWindowOpen)
+            {
+                Technical.ClearIECookie();
+                RegistartionWindow webBrowserWindow = new RegistartionWindow();
+                //присваем во владельцы окна - активное окно
+                webBrowserWindow.Owner = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+                webBrowserWindow.Show();
+                IsRegistrationWindowOpen = true;
+            }
+            
+        } //метод, вызывающий окно регистрации
+
+
+        //Работа со стилями контрола Drag'n'Drop 
+
+        /// <summary>
+        /// Метод устнавливает стиль состояния для элемента DropBox'a 
+        /// </summary>
+        /// <param name="dropBoxStyle">Требуемое состояние</param>
         private void InstallDropBoxStyle(DropBoxStyle dropBoxStyle)
         {
             switch (dropBoxStyle)
@@ -64,38 +215,7 @@ namespace CloudNotes
                 default:
                     break;
             }
-            
-        }
-        
-        private void DoYouWannaRegistrate()
-        {
-            var result = MessageBox.Show("Нет доступа к Я.Диску.\nХотите зарегистрироваться?","Регистрация",MessageBoxButton.OKCancel);
 
-            if (result == MessageBoxResult.OK)
-            {
-                OpenWebWindow();
-            }
-        }
-
-        //Эвенты дроп бокса
-        private void DropBoxDrop(object sender, DragEventArgs e)
-        {
-            AllowDrop = false;
-            
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                droppedFilesPaths = (string[])e.Data.GetData(DataFormats.FileDrop);
-                StringBuilder pathsStringBuilder = new StringBuilder();
-
-                foreach (var path in droppedFilesPaths)
-                {
-                    pathsStringBuilder.Append($"{path}\n");
-                }
-                droppedFilesPathsString = pathsStringBuilder.ToString();
-            }
-
-            CloudFiles.MoveToLocalDirectory(droppedFilesPaths);
-            InstallDropBoxStyle(DropBoxStyle.Default);
         }
 
         private void DropBoxDragEnter(object sender, DragEventArgs e)
@@ -107,80 +227,5 @@ namespace CloudNotes
         {
             InstallDropBoxStyle(DropBoxStyle.Default);
         }
-
-        //вкладка настроек
-        private void SettingsButtonClick(object sender, RoutedEventArgs e)
-        {
-            SettingsWindow settingsWindow = new SettingsWindow();
-            settingsWindow.Owner = this;
-            settingsWindow.Show();
-        }
-
-        private void SynchronizationButtonClick(object sender, RoutedEventArgs e)
-        {
-            if (!CloudToken.Exist())
-            {
-                DoYouWannaRegistrate();
-            }
-            else
-            {
-                try
-                {
-                    YaDisk.DownloadFilesFromCloud();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
-        private void UploadToCloudClick(object sender, RoutedEventArgs e)
-        {
-            if (!CloudToken.Exist())
-            {
-                DoYouWannaRegistrate();
-            }
-            else
-            {
-                var filesPath = CloudFiles.GetFilesFromLocalDirectory();
-
-                try
-                {
-                    YaDisk.UploadFilesOnCloud(filesPath);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
-        //веб браузер
-        public static void OpenWebWindow()
-        {
-            if (!CloudToken.Exist())
-            {
-                CloudToken.ClearIECookie();
-                WebBrowserWindow webBrowserWindow = new WebBrowserWindow();
-                webBrowserWindow.Owner = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                webBrowserWindow.Show();
-            }
-            else
-            {
-                var messageBoxResult = MessageBox.Show("Вы уже зарегистрировались.\nВы уверены, что хотите сменить аккаунт?", "Управление аккаунтом", MessageBoxButton.OKCancel);
-
-                if (MessageBoxResult.OK == messageBoxResult)
-                {
-                    CloudToken.ClearIECookie();
-                    WebBrowserWindow webBrowserWindow = new WebBrowserWindow();
-                    webBrowserWindow.Owner = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                    webBrowserWindow.Show();
-                }
-
-            }
-        }
-
-       
     }
 }

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloudNotes"
         mc:Ignorable="d"
-        Title="SettingsWindow" 
+        Title="Настройки" 
         FontFamily="Consolas"
-        Height="400" Width="420" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+        Height="400" Width="420" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Closed="SettingsWindowClosed">
     <Grid x:Name="SettingsGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>
@@ -51,14 +51,14 @@
                 Margin="3" 
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
-                Height="31" Width="190" Click="WebButtonClick"/>
+                Height="31" Width="190" Click="OpenRegistration"/>
 
         <Button x:Name="CookieClean" Content="Очистить куки-файлы"
                 Grid.Row ="2" Grid.Column="1"
                 Margin="3" 
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"
-                Height="31" Width="190" Click="CookieCLeanClick"/>
+                Height="31" Width="190" Click="CleanCookies"/>
         
         <!--Локальный путь-->
         <Label Content="Локальная директория: "
@@ -71,7 +71,7 @@
                    Fill="#FF1F1F1F"
                    VerticalAlignment="Bottom" 
                    Height="2"/>
-        <TextBox x:Name="PathInput"
+        <TextBox x:Name="LocalPathOutput"
                    IsReadOnly="True"
                    Grid.Row="4" Grid.ColumnSpan="2"
                    FontSize="15"
@@ -79,8 +79,13 @@
         <Button x:Name="LocalSaveFolderPathButton"
                 Margin="3" Content="Изменить путь"
                 Height="30" Width="180" Padding="0"
-                Grid.Row="5" Grid.Column="5"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangeLocalFolderButtonClick"/>
+                Grid.Row="5" Grid.Column="1"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangeLocalFolder"/>
+        <Button x:Name="OpenLocalFolderButton"
+                Margin="3" Content="Открыть локальную папку"
+                Height="30" Width="180" Padding="0"
+                Grid.Row="5" Grid.Column="0"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenLocalFolder" />
         
 
         <!--Имя папки на облаке-->
@@ -94,7 +99,7 @@
                    Fill="#FF1F1F1F"
                    VerticalAlignment="Bottom" 
                    Height="2"/>
-        <TextBox x:Name="CloudPathInput"
+        <TextBox x:Name="CloudFolderNameInput"
                  FontSize="15"
                  Grid.Row="7" Grid.ColumnSpan="2"
                  Margin="3"/>
@@ -102,7 +107,7 @@
                 Margin="3" Content="Изменить имя"
                 Height="30" Width="180" Padding="0"
                 Grid.Row="8" Grid.Column="1"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangeCloudFolderNameClick"/>
+                HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangeCloudFolderName"/>
 
         
 

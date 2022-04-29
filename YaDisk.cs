@@ -8,50 +8,86 @@ using System.IO;
 using YandexDisk.Client.Http;
 using YandexDisk.Client.Protocol;
 using YandexDisk.Client.Clients;
+using System.Windows;
 
 namespace CloudNotes
 {
     internal static class YaDisk
     {
-        //https://disk.yandex.ru/client/disk/#access_token=AQAAAABeHUu8AAfYYO68oVeDn02BoRK3rVk-Pjc&token_type=bearer&expires_in=31536000
+        /// <summary>
+        /// Имя папки, создаваемой на облаке
+        /// </summary>
+        public static string CloudFolderName
+        {
+            get
+            { return cloudFolderName;}
 
-        public static string CloudFolderName = Settings.Default["CloudFolderName"].ToString(); // Позже стоит сделать выбор имени папки через настройки!!!
-        public static string YaToken { get; set; } = CloudToken.AppToken;
-        private static DiskHttpApi yaApi = new DiskHttpApi(YaToken);//подключение к api яндекса через токен
+            set
+            {
+                
+                if ((value == "") || (value == " "))
+                {
+                    MessageBox.Show("Имя папки не может быть пустым!", "Ошибка");
+                }
+                else if(Technical.ForbiddenSymbolsCheck(value))
+                {
+                    MessageBox.Show("В названии содержаться запрещенные символы!\n(<,>,?,*,\",\\,|,:)", "Ошибка");
+                }
+                else
+                {
+                    Settings.Default.CloudFolderName = value;
+                    Settings.Default.Save();
+                    cloudFolderName = Settings.Default.CloudFolderName;
+                    MessageBox.Show("Папка на облаке переименована", "Успех");
+                }
+            }
 
+        }
+
+        private static string cloudFolderName = Settings.Default.CloudFolderName;
+
+        private static DiskHttpApi diskApi = new DiskHttpApi(CloudToken.UserToken); //Поле подключения к API диска
+
+        /// <summary>
+        /// Метод загружает файлы в папку, на подключенный диск
+        /// </summary>
+        /// <param name="filesPaths">Пути к файлам, для загрузки</param>
         public static async void UploadFilesOnCloud(string[] filesPaths)
         {
             foreach (var file in filesPaths)
             {
-                var uploadLink = await yaApi.Files.GetUploadLinkAsync("/"+CloudFolderName+"/"+Path.GetFileName(file),overwrite:true);
+                var uploadLink = await diskApi.Files.GetUploadLinkAsync("/"+CloudFolderName+"/"+Path.GetFileName(file),overwrite:true);
                 using(var fileStream = File.OpenRead(file))
                 {
-                    await yaApi.Files.UploadAsync(uploadLink,fileStream);
+                    await diskApi.Files.UploadAsync(uploadLink,fileStream);
                 }
                 
             }
 
         }
 
+        /// <summary>
+        /// Метод загружает файлы из папки на диске, в локальную папку
+        /// </summary>
         public static async void DownloadFilesFromCloud()
         {
-            CloudFiles.MakeLocalDirectory();
-
-            var cloudFolderData = await yaApi.MetaInfo.GetInfoAsync(new ResourceRequest { Path = "/" + CloudFolderName });
+            LocalFiles.MakeLocalDirectory();
+            
+            var cloudFolderData = await diskApi.MetaInfo.GetInfoAsync(new ResourceRequest { Path = "/" + CloudFolderName });
 
             foreach (var file in cloudFolderData.Embedded.Items)
             {
-                string localPathToFile = Path.Combine(CloudFiles.LocalFilesFullPath , file.Name);
+                string localPathToFile = Path.Combine(LocalFiles.LocalFolderFullPath , file.Name);
 
                 if (!File.Exists(localPathToFile))
                 {
-                    await yaApi.Files.DownloadFileAsync(path: file.Path, localPathToFile);
+                    await diskApi.Files.DownloadFileAsync(path: file.Path, localPathToFile);
                 }
                 else
                 {
 
                     File.Delete(localPathToFile);
-                    await yaApi.Files.DownloadFileAsync(path: file.Path, localPathToFile);
+                    await diskApi.Files.DownloadFileAsync(path: file.Path, localPathToFile);
                 }
 
                 
@@ -60,17 +96,23 @@ namespace CloudNotes
 
         }
 
+        /// <summary>
+        /// Метод создает папку, для сохранения файлов на диске
+        /// </summary>
         public static async void CreateCloudFolder()
         {
-            var rootFolderData = await yaApi.MetaInfo.GetInfoAsync(new ResourceRequest { Path = "/" }); // данные о корневой папке
-
-            if (!rootFolderData.Embedded.Items.Any(i => i.Type == ResourceType.Dir && i.Name.Equals(CloudFolderName))) //если нет такой папки
+            try
             {
-               await yaApi.Commands.CreateDictionaryAsync("/" + CloudFolderName); 
+                var rootFolderData = await diskApi.MetaInfo.GetInfoAsync(new ResourceRequest { Path = "/" }); // данные о корневой папке
+
+                if (!rootFolderData.Embedded.Items.Any(i => i.Type == ResourceType.Dir && i.Name.Equals(CloudFolderName))) //если нет такой папки
+                {
+                    await diskApi.Commands.CreateDictionaryAsync("/" + CloudFolderName);
+                }
+            }catch(Exception e)
+            {
+                MessageBox.Show($"Произошла ошибка в процессе создания папки на облаке:\n{e.Message}", "Ошибка");
             }
-
         }
-
-
     }
 }

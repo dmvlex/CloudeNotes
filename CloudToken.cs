@@ -11,44 +11,50 @@ namespace CloudNotes
 {
     internal static class CloudToken
     {
-        public static string AppToken { get; set; } = Settings.Default.Token;
 
-        public static bool Exist()
+        /// <summary>
+        /// Токен пользователя для подключения к Yandex API
+        /// </summary>
+        public static string UserToken
         {
-            if (AppToken != "")
+            get { return userToken; }
+            set
             {
-                return true;
+                if (value != "")
+                {
+                    isTokenEmpty = false;
+                    Settings.Default.Token = value;
+                    Settings.Default.Save();
+                    userToken = Settings.Default.Token;
+                }
+                else
+                {
+                    isTokenEmpty = true;
+                    Settings.Default.Token = value;
+                    Settings.Default.Save();
+                    userToken = Settings.Default.Token;
+                    MessageBox.Show("Токен был очищен","Внимание!");
+                }
             }
-            else
-            {
-                return false;
-            }
         }
 
-        
-
-        public static void ClearIECookie()
+        /// <summary>
+        /// Пустой ли токен на данный момент?
+        /// </summary>
+        public static bool IsTokenEmpty
         {
-            Process coockieClean = new Process();
-            coockieClean.StartInfo.UseShellExecute = false;
-            coockieClean.StartInfo.FileName = "cmd.exe";
-            coockieClean.StartInfo.Arguments = @"/C " + @"RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 2";
-            coockieClean.StartInfo.CreateNoWindow = true;
-            coockieClean.Start();
+            get {return isTokenEmpty;}
         }
 
-        public static void UpdateToken()
-        {
-            AppToken = Settings.Default.Token;
-            YaDisk.YaToken = AppToken;
-        }
+        private static string userToken = Settings.Default.Token; 
+        private static bool isTokenEmpty = true;
 
+        /// <summary>
+        /// Очищает значение токена пользователя
+        /// </summary>
         public static void ClearToken()
         {
-            Settings.Default.Token = "";
-            Settings.Default.Save();
-            UpdateToken();
-
+            UserToken = "";
         }
     }
 }

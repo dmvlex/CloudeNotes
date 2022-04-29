@@ -33,28 +33,28 @@
         </Border>
 
         <!--Панель управления-->
-        <Button x:Name="SettingsWindowButton"
+        <Button x:Name="OpenSettingsButton"
                 Height="45" Width="45"
                 Grid.Row="1" Grid.Column="2"
                 Margin="3" Padding="2"
-                HorizontalAlignment="Center" VerticalAlignment="Center" Click="SettingsButtonClick">
+                HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenSettingsWindow">
             <Image Source="Images\settings_button_icon.png"/>
         </Button>
 
-        <Button x:Name="SynchronizationButton" Content="Загрузить файлы из облака"
+        <Button x:Name="DownloadFilesButton" Content="Загрузить файлы из облака"
                 Height="45" Width="190"
                 FontSize="12" Padding="0"
                 Grid.Row="1" Grid.Column="1" 
                 Margin="3"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center" Click="SynchronizationButtonClick"/>
+                VerticalAlignment="Center" Click="DownloadFiles"/>
 
-        <Button x:Name="UploadToButtonCloud" Content="Загрузить файлы в облако"
+        <Button x:Name="UploadToCloudButton" Content="Загрузить файлы в облако"
                 Height="45" Width="190"
                 FontSize="12" Padding="0"
                 Grid.Row="1" Margin="3"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center" Click="UploadToCloudClick"/>
+                VerticalAlignment="Center" Click="UploadToCloud"/>
 
     </Grid>
 </Window>

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using WinForms = System.Windows.Forms;
 using System.IO;
 using System.Windows.Media;
+using System;
 
 namespace CloudNotes
 {
@@ -16,84 +17,85 @@ namespace CloudNotes
         {
             InitializeComponent();
 
-            PathInput.Text = CloudFiles.LocalFilesFullPath;
-            CloudPathInput.Text = YaDisk.CloudFolderName;
-            CheckTokenStatus();
+            LocalPathOutput.Text = LocalFiles.LocalFolderFullPath;
+            CloudFolderNameInput.Text = YaDisk.CloudFolderName;
+            ShowTokenStatus();
             
         }
 
-        //костыль.ОЧЕНЬ,ОЧЕНЬ,ОЧЕНЬ КОСТЫЛЬНЫЙ КОСТЫЛЬ
-        private void CloudSettingsUpdate()
-        {
-            YaDisk.CloudFolderName = Settings.Default["CloudFolderName"].ToString();
-            YaDisk.CreateCloudFolder();
-        }
-
-        private void CheckTokenStatus()
-        {
-            if (CloudToken.Exist())
-            {
-                TokenStatus.Content = "токен получен";
-                TokenStatus.Foreground = new SolidColorBrush(Color.FromArgb(255, 146, 214, 69));
-            }
-            else
-            {
-                TokenStatus.Content = "токен не получен";
-                TokenStatus.Foreground = new SolidColorBrush(Color.FromArgb(255, 214, 69, 69));
-            }
-        }
-
-        private void LocalFolderSettingsUpdate()
-        {
-            CloudFiles.LocalFilesPath = Settings.Default["LocalPath"].ToString();
-            CloudFiles.LocalFilesFullPath = Path.GetFullPath(CloudFiles.LocalFilesPath);
-            CloudFiles.MakeLocalDirectory();
-        }
-
-        private void ChangeLocalFolderButtonClick(object sender, RoutedEventArgs e)
+        private void ChangeLocalFolder(object sender, RoutedEventArgs e)
         {
             var dialogFileChoise = new WinForms.FolderBrowserDialog();
             var dialogResult = dialogFileChoise.ShowDialog();
 
             if (dialogResult == WinForms.DialogResult.OK)
             {
-                Settings.Default.LocalPath = dialogFileChoise.SelectedPath;
-                Settings.Default.Save();
-                LocalFolderSettingsUpdate();
-                PathInput.Text = CloudFiles.LocalFilesFullPath;
+                LocalFiles.LocalFolderFullPath = dialogFileChoise.SelectedPath;
+                LocalPathOutput.Text = LocalFiles.LocalFolderFullPath;
             }
  
-        }
+        } //Нажатие на кнопку смены локального пути 
 
-        private void ChangeCloudFolderNameClick(object sender, RoutedEventArgs e)
+        private void ChangeCloudFolderName(object sender, RoutedEventArgs e)
         {
-            if (CloudPathInput.Text != "")
+            if (CloudToken.IsTokenEmpty)
             {
-                Settings.Default.CloudFolderName = CloudPathInput.Text;
-                Settings.Default.Save();
-                CloudSettingsUpdate();
-
-
-                MessageBox.Show("Имя папки на облаке успешно изменено", "Успех");
+                MainWindow.RegistrationRequest();
             }
             else
             {
-                MessageBox.Show("Имя папки не может быть пустым", "Ошибка!");
+               YaDisk.CloudFolderName = CloudFolderNameInput.Text;
             }
             
-        }
+        } //Нажатие на кнопку смены имени папки на облаке
 
-        private void WebButtonClick(object sender, RoutedEventArgs e)
+        private void OpenRegistration(object sender, RoutedEventArgs e)
         {
-            MainWindow.OpenWebWindow();
-        }
+            MainWindow.OpenRegistrationWindow();
+        } //нажатие на кнопку смены аккаунта
 
-
-        private void CookieCLeanClick(object sender, RoutedEventArgs e)
+        private void CleanCookies(object sender, RoutedEventArgs e)
         {
-            CloudToken.ClearIECookie();
+            Technical.ClearIECookie();
+        } //Нажатие на кнопку очищения куки 
+        private void OpenLocalFolder(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ProcessStartInfo openFolderInfo = new ProcessStartInfo();
+                openFolderInfo.Arguments = LocalFiles.LocalFolderFullPath + "\\";
+                openFolderInfo.FileName = "explorer.exe";
+
+                Process.Start(openFolderInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Во время открытия локальной папки произошла ошибка:\n{ex.Message}","Ошибка");
+            }
+        } //Нажатие на открытие локальной папки
+
+        /// <summary>
+        /// Выводит получен ли токен, в строке в окне настроек
+        /// </summary>
+        private void ShowTokenStatus()
+        {
+            if (CloudToken.IsTokenEmpty)
+            {
+                TokenStatus.Content = "токен не получен";
+                TokenStatus.Foreground = new SolidColorBrush(Color.FromArgb(255, 214, 69, 69));
+            }
+            else
+            {
+                TokenStatus.Content = "токен получен";
+                TokenStatus.Foreground = new SolidColorBrush(Color.FromArgb(255, 146, 214, 69));
+            }
         }
 
-       
+        private void SettingsWindowClosed(object sender, System.EventArgs e)
+        {
+            MainWindow.IsSettingsWindowOpen = false;
+        }
+
+        
     }
 }

@@ -10,7 +10,7 @@
     <Authors>Alex Kharitonov</Authors>
     <Company>DMVProgram.inc</Company>
     <Description>Приложение, для упрощенного взаимодействия с Я.Диском</Description>
-    <ApplicationIcon>Images\CloudICO.ico</ApplicationIcon>
+    <ApplicationIcon>Images\CLOUSNOTESICO.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\CloudICO.ico" />
+    <Content Include="Images\CLOUSNOTESICO.ico" />
   </ItemGroup>
 
   <ItemGroup>
