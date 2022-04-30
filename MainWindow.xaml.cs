@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using CloudNotes.Properties;
 using System.IO;
 using System.Linq;
 
@@ -58,7 +59,8 @@ namespace CloudNotes
         public MainWindow()
         {
             InitializeComponent();
-            InstallDropBoxStyle(DropBoxStyle.Default); 
+            InstallDropBoxStyle(DropBoxStyle.Default);
+            CloudToken.UserToken = Settings.Default.Token;
         }
 
         /// <summary>
@@ -142,6 +144,7 @@ namespace CloudNotes
 
         private void DownloadFiles(object sender, RoutedEventArgs e) 
         {
+            
             if (CloudToken.IsTokenEmpty)
             {
                 RegistrationRequest();
