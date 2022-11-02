@@ -142,7 +142,7 @@ namespace CloudNotes
 
         } 
 
-        private void DownloadFiles(object sender, RoutedEventArgs e) 
+        private async void DownloadFiles(object sender, RoutedEventArgs e) 
         {
             
             if (CloudToken.IsTokenEmpty)
@@ -153,7 +153,7 @@ namespace CloudNotes
             {
                 try
                 {
-                    YaDisk.DownloadFilesFromCloud();
+                    await YaDisk.GetAllFoldersInFolder("/Saved Files");
                 }
                 catch (Exception ex)
                 {
@@ -162,7 +162,7 @@ namespace CloudNotes
             }
         } //Нажатие кнопки загрузки из облака в локальную папку
 
-        private void UploadToCloud(object sender, RoutedEventArgs e)
+        private async void UploadToCloud(object sender, RoutedEventArgs e)
         {
             if (CloudToken.IsTokenEmpty)
             {
@@ -172,13 +172,16 @@ namespace CloudNotes
             {
                 try
                 {
-                    YaDisk.UploadFilesOnCloud(LocalFiles.FilesFromLocalFolder);
+                    await YaDisk.UploadLocalFolderOnDiskAsync(LocalFiles.LocalFolderFullPath);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Во время загрузки файлов в облако произошла ошибка:\n{ex.Message}", "Ошибка");
                 }
+
+                MessageBox.Show("Файлы выгрузили");
             }
+
         } //Нажатие кнопки загрузки в облако из локальной папки
 
         private static void openRegWindow()

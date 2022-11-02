@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\
 CloudNotes
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\App.xaml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\App.xaml
 31242007969
 1309749173
 111307261257
-207549497018
+207302021691
 MainWindow.xaml;RegistrationWindow.xaml;SettingsWindow.xaml;
 
 False

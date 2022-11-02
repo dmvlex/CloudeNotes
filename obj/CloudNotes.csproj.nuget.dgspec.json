@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\CloudNotes.csproj": {}
+    "E:\\OTHER\\PROGRAMMING\\Projects\\CloudeNotes\\CloudNotes.csproj": {}
   },
   "projects": {
-    "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\CloudNotes.csproj": {
+    "E:\\OTHER\\PROGRAMMING\\Projects\\CloudeNotes\\CloudNotes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\CloudNotes.csproj",
+        "projectUniqueName": "E:\\OTHER\\PROGRAMMING\\Projects\\CloudeNotes\\CloudNotes.csproj",
         "projectName": "CloudNotes",
-        "projectPath": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\CloudNotes.csproj",
-        "packagesPath": "C:\\Users\\betme\\.nuget\\packages\\",
-        "outputPath": "D:\\Alex Stuff\\Programming\\Visual Projects\\CloudNotes\\CloudeNotes\\obj\\",
+        "projectPath": "E:\\OTHER\\PROGRAMMING\\Projects\\CloudeNotes\\CloudNotes.csproj",
+        "packagesPath": "C:\\Users\\Alexandro\\.nuget\\packages\\",
+        "outputPath": "E:\\OTHER\\PROGRAMMING\\Projects\\CloudeNotes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Alex Stuff\\Programming\\Prog Soft\\VISUAL STUDIO SDK'S\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\betme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alexandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -55,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -67,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

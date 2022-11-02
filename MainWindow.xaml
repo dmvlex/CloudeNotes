@@ -12,9 +12,8 @@
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.65*"/>
+            <RowDefinition Height="0.05*"/>
             <RowDefinition Height="0.20*"/>
-
-
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -31,11 +30,13 @@
                   Drop="DropBoxDrop" AllowDrop="True" 
                   DragEnter="DropBoxDragEnter" DragLeave="DropBoxDragLeave" Foreground="#FF68A6EC" />
         </Border>
-
+        <ProgressBar x:Name="FileTransferProgressBar"
+                     Grid.Row="1" Grid.ColumnSpan="3"
+                     Margin="3,2,3,2"/>
         <!--Панель управления-->
         <Button x:Name="OpenSettingsButton"
                 Height="45" Width="45"
-                Grid.Row="1" Grid.Column="2"
+                Grid.Row="2" Grid.Column="2"
                 Margin="3" Padding="2"
                 HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenSettingsWindow">
             <Image Source="Images\settings_button_icon.png"/>
@@ -44,7 +45,7 @@
         <Button x:Name="DownloadFilesButton" Content="Загрузить файлы из облака"
                 Height="45" Width="190"
                 FontSize="12" Padding="0"
-                Grid.Row="1" Grid.Column="1" 
+                Grid.Row="2" Grid.Column="1" 
                 Margin="3"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" Click="DownloadFiles"/>
@@ -52,7 +53,7 @@
         <Button x:Name="UploadToCloudButton" Content="Загрузить файлы в облако"
                 Height="45" Width="190"
                 FontSize="12" Padding="0"
-                Grid.Row="1" Margin="3"
+                Grid.Row="2" Margin="3"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" Click="UploadToCloud"/>
 

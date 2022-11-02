@@ -51,6 +51,7 @@ namespace CloudNotes
             }
         }
 
+
         /// <summary>
         /// Метод переносит файлы в указанную локальную папку.
         /// </summary>

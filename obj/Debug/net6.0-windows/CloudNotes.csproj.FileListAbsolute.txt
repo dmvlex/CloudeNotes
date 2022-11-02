@@ -1,58 +1,34 @@
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\bin\Debug\net6.0-windows\CloudNotes.exe
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\bin\Debug\net6.0-windows\CloudNotes.deps.json
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\bin\Debug\net6.0-windows\CloudNotes.runtimeconfig.json
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\bin\Debug\net6.0-windows\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\bin\Debug\net6.0-windows\CloudNotes.pdb
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.AssemblyReference.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\MainWindow.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\App.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.lref
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\MainWindow.baml
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.g.resources
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.GeneratedMSBuildEditorConfig.editorconfig
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.AssemblyInfoInputs.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.AssemblyInfo.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.CoreCompileInputs.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\refint\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.pdb
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.genruntimeconfig.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\ref\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\App.baml
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.Properties.Resources.resources
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.GenerateResource.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.exe
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.deps.json
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.runtimeconfig.json
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.pdb
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.AssemblyReference.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\App.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.lref
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\App.baml
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.baml
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.baml
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.g.resources
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.Properties.Resources.resources
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.GenerateResource.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.GeneratedMSBuildEditorConfig.editorconfig
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.AssemblyInfoInputs.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.AssemblyInfo.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.CoreCompileInputs.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\refint\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.pdb
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.genruntimeconfig.cache
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\ref\CloudNotes.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\System.Net.Http.Formatting.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Json.Bson.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\bin\Debug\net6.0-windows\YandexDisk.Client.dll
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.CopyComplete
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_Content.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.g.cs
-D:\Alex Stuff\Programming\Visual Projects\CloudNotes\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.baml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.exe
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.deps.json
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.runtimeconfig.json
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\CloudNotes.pdb
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\System.Net.Http.Formatting.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Json.Bson.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\YandexDisk.Client.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.AssemblyReference.cache
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\App.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_Content.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.cache
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.lref
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\App.baml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.baml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.baml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.baml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.g.resources
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.Properties.Resources.resources
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.GenerateResource.cache
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.GeneratedMSBuildEditorConfig.editorconfig
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.AssemblyInfoInputs.cache
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.AssemblyInfo.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.CoreCompileInputs.cache
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.CopyComplete
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\refint\CloudNotes.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.pdb
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.genruntimeconfig.cache
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\ref\CloudNotes.dll
