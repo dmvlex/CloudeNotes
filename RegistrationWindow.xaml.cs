@@ -38,7 +38,7 @@ namespace CloudNotes
                 if (matchToken.Success)
                 {
                     CloudToken.UserToken = matchToken.Groups["token"].Value;
-                    YaDisk.CreateCloudFolder();
+                    //YaDiskClient.CreateCloudFolder();
                     this.Close();
                 }
             }

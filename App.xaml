@@ -4,20 +4,25 @@
              xmlns:local="clr-namespace:CloudNotes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Grid">
+        <!-- Shared -->
+        <Style TargetType="Grid" x:Key="AllGrids">
             <Setter Property="Background" Value="#FF3D3D3D">
                 
             </Setter>
         </Style>
-        
-        <!-- Переопределяем стиль кнопки, потому что синяя подсветка меня достала!-->
-        <Style TargetType="{x:Type Button}">
+        <Style TargetType="Border" x:Key="AllBorders">
+            <Setter Property="BorderBrush" Value="#FF116ED6"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="AllButtons">
             <Setter Property="Background" Value="#FF1F1F1F"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="8,4,8,4"/>
             <Setter Property="Padding" Value="0"/>
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="#FF116ED6"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -42,13 +47,36 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-        <Style TargetType="TextBox">
+        <Style TargetType="TextBox" x:Key="AllTextBoxes">
             <Setter Property="Background" Value="#C11F1F1F"/>
             <Setter Property="BorderBrush" Value="#FF68A6EC"/>
             <Setter Property="Foreground" Value="White"/>
         </Style> 
+        
+        <!-- MainWindow Controls -->
+        <Style TargetType="TextBlock" x:Key="DropBox">
+            <Setter Property="Background" Value="#C11F1F1F"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0 80 0 0"/>
+            <Setter Property="Foreground" Value="#FF68A6EC"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="AllowDrop" Value="True"/>
+        </Style>
+        
+        <!-- SettingsWindow Controls -->
+        <Style TargetType="Label" x:Key="SettingsHeader">
+            <Setter Property="Foreground" Value="#FF68A6EC"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="Rectangle" x:Key="SettingHeaderRectangle">
+            
+        </Style>
 
-
+        <!-- RegistrationWindow Controls -->
+        
     </Application.Resources>
 </Application>

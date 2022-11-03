@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloudNotes"
         mc:Ignorable="d"
-        Title="Регистрация в Я.Диск" Height="600" Width="400" ResizeMode="CanMinimize" Closed="WebWindowIsClosed" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+        Title="Регистрация в Я.Диск" Height="600" Width="500" ResizeMode="CanMinimize" Closed="WebWindowIsClosed" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
     <Grid>
         <Border BorderThickness="2" BorderBrush="#FF116ED6" Margin="5">
             <WebBrowser x:Name="LoginWebBrowser"

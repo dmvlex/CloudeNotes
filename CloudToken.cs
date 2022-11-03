@@ -33,7 +33,6 @@ namespace CloudNotes
                     Settings.Default.Token = value;
                     Settings.Default.Save();
                     userToken = Settings.Default.Token;
-                    MessageBox.Show("Токен был очищен","Внимание!");
                 }
             }
         }

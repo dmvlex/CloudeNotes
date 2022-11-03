@@ -18,9 +18,8 @@ namespace CloudNotes
             InitializeComponent();
 
             LocalPathOutput.Text = LocalFiles.LocalFolderFullPath;
-            CloudFolderNameInput.Text = YaDisk.CloudFolderName;
             ShowTokenStatus();
-            
+
         }
 
         private void ChangeLocalFolder(object sender, RoutedEventArgs e)
@@ -33,44 +32,29 @@ namespace CloudNotes
                 LocalFiles.LocalFolderFullPath = dialogFileChoise.SelectedPath;
                 LocalPathOutput.Text = LocalFiles.LocalFolderFullPath;
             }
- 
+
         } //Нажатие на кнопку смены локального пути 
-
-        private void ChangeCloudFolderName(object sender, RoutedEventArgs e)
-        {
-            if (CloudToken.IsTokenEmpty)
-            {
-                MainWindow.RegistrationRequest();
-            }
-            else
-            {
-               YaDisk.CloudFolderName = CloudFolderNameInput.Text;
-            }
-            
-        } //Нажатие на кнопку смены имени папки на облаке
-
         private void OpenRegistration(object sender, RoutedEventArgs e)
         {
             MainWindow.OpenRegistrationWindow();
         } //нажатие на кнопку смены аккаунта
-
         private void CleanCookies(object sender, RoutedEventArgs e)
         {
-            Technical.ClearIECookie();
+            WebFormCookieCleaner.Clear();
         } //Нажатие на кнопку очищения куки 
         private void OpenLocalFolder(object sender, RoutedEventArgs e)
         {
             try
             {
                 ProcessStartInfo openFolderInfo = new ProcessStartInfo();
-                openFolderInfo.Arguments = LocalFiles.LocalFolderFullPath + "\\";
+                openFolderInfo.Arguments = LocalFiles.LocalFolderFullPath;
                 openFolderInfo.FileName = "explorer.exe";
 
                 Process.Start(openFolderInfo);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Во время открытия локальной папки произошла ошибка:\n{ex.Message}","Ошибка");
+                MessageBox.Show($"Во время открытия локальной папки произошла ошибка:\n{ex.Message}", "Ошибка");
             }
         } //Нажатие на открытие локальной папки
 
@@ -95,7 +79,5 @@ namespace CloudNotes
         {
             MainWindow.IsSettingsWindowOpen = false;
         }
-
-        
     }
 }

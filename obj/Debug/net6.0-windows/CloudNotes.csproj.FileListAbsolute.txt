@@ -8,17 +8,11 @@ E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Js
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\Newtonsoft.Json.Bson.dll
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\bin\Debug\net6.0-windows\YandexDisk.Client.dll
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.AssemblyReference.cache
-E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.g.cs
-E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.g.cs
-E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.g.cs
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\App.g.cs
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_Content.g.cs
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.cache
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes_MarkupCompile.lref
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\App.baml
-E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.baml
-E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.baml
-E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.baml
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.g.resources
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.Properties.Resources.resources
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.csproj.GenerateResource.cache
@@ -32,3 +26,9 @@ E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\refint\CloudN
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.pdb
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\CloudNotes.genruntimeconfig.cache
 E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\ref\CloudNotes.dll
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.g.cs
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\MainWindow.baml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\RegistrationWindow.baml
+E:\OTHER\PROGRAMMING\Projects\CloudeNotes\obj\Debug\net6.0-windows\SettingsWindow.baml

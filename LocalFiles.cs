@@ -14,7 +14,7 @@ namespace CloudNotes
         public static string LocalFolderFullPath
         {
             get
-            {return localFolderFullPath;}
+            { return localFolderFullPath; }
             set
             {
                 if (value != "")
@@ -28,14 +28,6 @@ namespace CloudNotes
                     MessageBox.Show("Путь к локальной папке не может быть пустым", "Ошибка");
                 }
             }
-        }   
-
-        /// <summary>
-        /// Пути ко всем файлам из локальной папки.
-        /// </summary>
-        public static string[] FilesFromLocalFolder
-        {
-            get { return Directory.GetFiles(localFolderFullPath);}
         }
 
         private static string localFolderFullPath = Path.GetFullPath(Settings.Default.LocalPath);
@@ -64,12 +56,14 @@ namespace CloudNotes
                 try
                 {
                     File.Move(path, Path.Combine(LocalFolderFullPath, Path.GetFileName(path)));
-                }catch(Exception e)
+                }
+                catch (Exception e)
                 {
                     MessageBox.Show(e.Message);
                 }
 
             }
         }
+
     }
 }

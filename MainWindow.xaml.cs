@@ -5,6 +5,7 @@ using System.Windows.Media;
 using CloudNotes.Properties;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CloudNotes
 {
@@ -23,37 +24,15 @@ namespace CloudNotes
         /// <summary>
         /// Открыто ли в данный момент окно настроек?
         /// </summary>
-        public static bool IsSettingsWindowOpen
-        {
-            get
-            {
-                return isSettingsWindowOpen;
-            }
-            set
-            {
-                isSettingsWindowOpen = value;
-            }
-        }
+        public static bool IsSettingsWindowOpen { get; set; } = false;
 
         /// <summary>
         /// Открыто ли в данный момент окно регистрации?
         /// </summary>
-        public static bool IsRegistrationWindowOpen
-        {
-            get
-            {
-                return isRegistrationWindowOpen;
-            }
-            set
-            {
-                isRegistrationWindowOpen = value;
-            }
-        }
+        public static bool IsRegistrationWindowOpen { get; set; } = false;
 
         private static string[] droppedFilesPaths; //массив всех дропнутых путей файлов
         private string droppedFilesPathsString; //строка со всеми путями дропнутых файлов
-        private static bool isSettingsWindowOpen = false;
-        private static bool isRegistrationWindowOpen = false;
 
 
         public MainWindow()
@@ -70,14 +49,14 @@ namespace CloudNotes
         {
             if (CloudToken.IsTokenEmpty)
             {
-                openRegWindow();
+                OpenRegWindow();
             }
             else
             {
                 var messageBoxResult = MessageBox.Show("Вы уже зарегистрировались.\nВы уверены, что хотите сменить аккаунт?", "Управление аккаунтом", MessageBoxButton.OKCancel);
                 if (MessageBoxResult.OK == messageBoxResult)
                 {
-                    openRegWindow();
+                    OpenRegWindow();
                 }
 
             }
@@ -103,13 +82,9 @@ namespace CloudNotes
             {
                 RegistrationRequest();
             }
-            else
-            {
-               YaDisk.CreateCloudFolder();
-            }
         } 
 
-        private void DropBoxDrop(object sender, DragEventArgs e)
+        private async void DropBoxDrop(object sender, DragEventArgs e)
         {
             AllowDrop = false;
             
@@ -126,13 +101,13 @@ namespace CloudNotes
                 droppedFilesPathsString = pathsStringBuilder.ToString();
             }
             
-            LocalFiles.MoveToLocalPath(droppedFilesPaths); //Сразу перемещаем файлы в локальную папку
+            await Task.Run(()=> { LocalFiles.MoveToLocalPath(droppedFilesPaths); }); //Сразу перемещаем файлы в локальную папку
             InstallDropBoxStyle(DropBoxStyle.Default);
         } 
         
         private void OpenSettingsWindow(object sender, RoutedEventArgs e)
         {
-            if (!isSettingsWindowOpen)
+            if (!IsSettingsWindowOpen)
             {
                 SettingsWindow settingsWindow = new SettingsWindow();
                 settingsWindow.Owner = this;
@@ -142,9 +117,10 @@ namespace CloudNotes
 
         } 
 
-        private async void DownloadFiles(object sender, RoutedEventArgs e) 
+        private async void DownloadFiles(object sender, RoutedEventArgs e)
         {
-            
+            DownloadFilesButton.IsEnabled = false;
+            DownloadFilesButton.Content = "Cкачивание...";
             if (CloudToken.IsTokenEmpty)
             {
                 RegistrationRequest();
@@ -153,17 +129,21 @@ namespace CloudNotes
             {
                 try
                 {
-                    await YaDisk.GetAllFoldersInFolder("/Saved Files");
+                    await YaDiskClient.DownloadFolderAsync();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Во время скачивания файлов из облака произошла ошибка:\n{ex.Message}","Ошибка");
+                    MessageBox.Show($"Во время скачивания файлов из облака произошла ошибка:\n{ex.Message}", "Ошибка");
                 }
             }
+            DownloadFilesButton.Content = "Загрузить файлы из облака";
+            DownloadFilesButton.IsEnabled = true;
         } //Нажатие кнопки загрузки из облака в локальную папку
 
         private async void UploadToCloud(object sender, RoutedEventArgs e)
         {
+            UploadToCloudButton.IsEnabled = false;
+            UploadToCloudButton.Content = "Загрузка...";
             if (CloudToken.IsTokenEmpty)
             {
                 RegistrationRequest();
@@ -172,23 +152,23 @@ namespace CloudNotes
             {
                 try
                 {
-                    await YaDisk.UploadLocalFolderOnDiskAsync(LocalFiles.LocalFolderFullPath);
+                    await YaDiskClient.UploadLocalDirectoryAsync(LocalFiles.LocalFolderFullPath);
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Во время загрузки файлов в облако произошла ошибка:\n{ex.Message}", "Ошибка");
                 }
-
-                MessageBox.Show("Файлы выгрузили");
             }
-
+            UploadToCloudButton.Content = "Загрузить файлы в облако";
+            UploadToCloudButton.IsEnabled = true;
         } //Нажатие кнопки загрузки в облако из локальной папки
 
-        private static void openRegWindow()
+        private static void OpenRegWindow()
         {
-            if (!isRegistrationWindowOpen)
+            if (!IsRegistrationWindowOpen)
             {
-                Technical.ClearIECookie();
+                WebFormCookieCleaner.Clear();
                 RegistartionWindow webBrowserWindow = new RegistartionWindow();
                 //присваем во владельцы окна - активное окно
                 webBrowserWindow.Owner = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);

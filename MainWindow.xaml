@@ -9,10 +9,9 @@
         Height="300" Width="450" 
         FontFamily="Consolas"
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" ContentRendered="MainWindowRendered">
-    <Grid x:Name="MainGrid">
+    <Grid x:Name="MainGrid" Style="{StaticResource AllGrids}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.65*"/>
-            <RowDefinition Height="0.05*"/>
             <RowDefinition Height="0.20*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -21,41 +20,32 @@
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
 
-        <Border x:Name="DropBoxBorder" Margin="3" Grid.ColumnSpan="3"
-                BorderThickness="2" BorderBrush="#FF116ED6">
-        <TextBlock x:Name="DropBox" Background="#C11F1F1F"
-                  Grid.Row="0" 
-                  FontSize="12" FontWeight="Bold" 
-                  TextAlignment="Center" Padding="0 80 0 0"
-                  Drop="DropBoxDrop" AllowDrop="True" 
-                  DragEnter="DropBoxDragEnter" DragLeave="DropBoxDragLeave" Foreground="#FF68A6EC" />
+        <Border x:Name="DropBoxBorder" Style="{StaticResource AllBorders}" 
+                Margin="3" Grid.ColumnSpan="3">
+            <TextBlock x:Name="DropBox" Style="{StaticResource DropBox}" 
+                  Grid.Row="0"           
+                  Drop="DropBoxDrop" 
+                  DragEnter="DropBoxDragEnter" DragLeave="DropBoxDragLeave"  />
         </Border>
-        <ProgressBar x:Name="FileTransferProgressBar"
-                     Grid.Row="1" Grid.ColumnSpan="3"
-                     Margin="3,2,3,2"/>
         <!--Панель управления-->
-        <Button x:Name="OpenSettingsButton"
+        <Button x:Name="OpenSettingsButton" Style="{StaticResource AllButtons}"
                 Height="45" Width="45"
                 Grid.Row="2" Grid.Column="2"
-                Margin="3" Padding="2"
-                HorizontalAlignment="Center" VerticalAlignment="Center" Click="OpenSettingsWindow">
+                Margin="3" Padding="2" 
+                Click="OpenSettingsWindow">
             <Image Source="Images\settings_button_icon.png"/>
         </Button>
 
-        <Button x:Name="DownloadFilesButton" Content="Загрузить файлы из облака"
-                Height="45" Width="190"
-                FontSize="12" Padding="0"
+        <Button x:Name="DownloadFilesButton" Style="{StaticResource AllButtons}"
+                Content="Загрузить файлы из облака"
+                Height="45" Width="190" 
                 Grid.Row="2" Grid.Column="1" 
-                Margin="3"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" Click="DownloadFiles"/>
+                Margin="3" Click="DownloadFiles"/>
 
-        <Button x:Name="UploadToCloudButton" Content="Загрузить файлы в облако"
+        <Button x:Name="UploadToCloudButton" Style="{StaticResource AllButtons}"
+                Content="Загрузить файлы в облако"
                 Height="45" Width="190"
-                FontSize="12" Padding="0"
-                Grid.Row="2" Margin="3"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" Click="UploadToCloud"/>
+                Grid.Row="2" Margin="3" Click="UploadToCloud"/>
 
     </Grid>
 </Window>

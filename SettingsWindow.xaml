@@ -7,21 +7,18 @@
         mc:Ignorable="d"
         Title="Настройки" 
         FontFamily="Consolas"
-        Height="400" Width="420" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Closed="SettingsWindowClosed">
-    <Grid x:Name="SettingsGrid">
+        Height="320" Width="480" 
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" 
+        Closed="SettingsWindowClosed">
+    <Grid x:Name="SettingsGrid" Style="{StaticResource AllGrids}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
-            <RowDefinition Height="0.20*"/>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             
-            <RowDefinition Height="0.20*"/>
-            <RowDefinition Height="0.10*"/>
-            <RowDefinition Height="0.20*"/>
-            
-            <RowDefinition Height="0.20*"/>
-            <RowDefinition Height="0.10*"/>
-            <RowDefinition Height="0.20*"/>
-            
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -30,88 +27,52 @@
 
         
         <!--Регистрация-->
-        <Label Content="Регистрация: "
-               Grid.Row="0"
-               FontSize="16" Foreground="#FF68A6EC"
-               FontWeight="DemiBold"
-               VerticalAlignment="Bottom"
-               Margin="2"/>
-        <Rectangle Grid.ColumnSpan="2"
-                   Fill="#FF1F1F1F"
-                   VerticalAlignment="Bottom" 
-                   Height="2"/>
-        
+        <Border Grid.ColumnSpan="2" Style="{StaticResource AllBorders}"
+                   VerticalAlignment="Bottom" BorderThickness="0,0,0,2" Margin="2">
+            <Label Content="Регистрация: " Style="{StaticResource SettingsHeader}"
+               Grid.Row="0" />
+        </Border>
+
         <Label Content="Состояние токена:" Margin="3" Foreground = "White" 
                Grid.Row="1" VerticalAlignment="Center"/>
         <Label x:Name="TokenStatus" Content="токен не получен" Margin="120 3 3 3" Foreground="#FFD64545"
                Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
-        <Button x:Name="WebBrowserButton" Content="Сменить аккаунт"
-                Grid.Row="2"
+        <Button x:Name="WebBrowserButton" Style="{StaticResource AllButtons}"
+                Content="Сменить аккаунт"
+                Grid.Row="1" Grid.Column="1"
                 Margin="3" 
-                VerticalAlignment="Center"
-                HorizontalAlignment="Left"
-                Height="31" Width="190" Click="OpenRegistration"/>
+                Click="OpenRegistration"/>
 
-        <Button x:Name="CookieClean" Content="Очистить куки-файлы"
-                Grid.Row ="2" Grid.Column="1"
-                Margin="3" 
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Height="31" Width="190" Click="CleanCookies"/>
+        <Button x:Name="CookieClean" Style="{StaticResource AllButtons}"
+                Content="Очистить куки-файлы"
+                Grid.Row ="2" Grid.Column="1" 
+                Margin="3" Click="CleanCookies"/>
         
         <!--Локальный путь-->
-        <Label Content="Локальная директория: "
-               Grid.Row="3"
-               FontSize="16" Foreground="#FF68A6EC"
-               FontWeight="DemiBold"
-               VerticalAlignment="Bottom"
-               Margin="2"/>
-        <Rectangle Grid.ColumnSpan="2" Grid.Row="3"
-                   Fill="#FF1F1F1F"
-                   VerticalAlignment="Bottom" 
-                   Height="2"/>
-        <TextBox x:Name="LocalPathOutput"
+        <Border Grid.ColumnSpan="2" Grid.Row="3" Style="{StaticResource AllBorders}"
+                   VerticalAlignment="Bottom" BorderThickness="0,0,0,2" Margin="2">
+            <Label Content="Локальная директория: " Style="{StaticResource SettingsHeader}"
+               Grid.Row="3"/>
+        </Border>
+        <TextBox x:Name="LocalPathOutput" Style="{StaticResource AllTextBoxes}"
                    IsReadOnly="True"
                    Grid.Row="4" Grid.ColumnSpan="2"
                    FontSize="15"
                    Margin="3"/>
-        <Button x:Name="LocalSaveFolderPathButton"
-                Margin="3" Content="Изменить путь"
-                Height="30" Width="180" Padding="0"
+        <Button x:Name="LocalSaveFolderPathButton" Style="{StaticResource AllButtons}"
+                Margin="3,2,3,3" Content="Изменить путь"
                 Grid.Row="5" Grid.Column="1"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangeLocalFolder"/>
-        <Button x:Name="OpenLocalFolderButton"
-                Margin="3" Content="Открыть локальную папку"
-                Height="30" Width="180" Padding="0"
+                Height="30" Width="180"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Click="ChangeLocalFolder"/>
+        <Button x:Name="OpenLocalFolderButton" Style="{StaticResource AllButtons}"
+                Margin="3,2,3,3" Content="Открыть локальную папку"
+                Height="30" Width="180"
                 Grid.Row="5" Grid.Column="0"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenLocalFolder" />
-        
-
-        <!--Имя папки на облаке-->
-        <Label Content="Имя папки на облаке: "
-               Grid.Row="6"
-               FontSize="16" Foreground="#FF68A6EC"
-               FontWeight="DemiBold"
-               VerticalAlignment="Bottom"
-               Margin="2"/>
-        <Rectangle Grid.ColumnSpan="2" Grid.Row="6"
-                   Fill="#FF1F1F1F"
-                   VerticalAlignment="Bottom" 
-                   Height="2"/>
-        <TextBox x:Name="CloudFolderNameInput"
-                 FontSize="15"
-                 Grid.Row="7" Grid.ColumnSpan="2"
-                 Margin="3"/>
-        <Button x:Name="CloudFolderNameButton"
-                Margin="3" Content="Изменить имя"
-                Height="30" Width="180" Padding="0"
-                Grid.Row="8" Grid.Column="1"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangeCloudFolderName"/>
-
-        
-
-        
-
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Click="OpenLocalFolder" />
     </Grid>
 </Window>
